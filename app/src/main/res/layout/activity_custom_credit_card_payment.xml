@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context=".activity.CustomCreditCardPaymentActivity">
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/backBtn"
+        app:layout_constraintVertical_bias="0.5">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/cardnamesurname"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="15dp"
+                android:drawableEnd="@drawable/common_full_open_on_phone"
+                android:ems="10"
+                android:hint="Card Name Surname (optional)"
+                android:inputType="text"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp" />
+
+            <com.vicmikhailau.maskededittext.MaskedEditText
+                android:id="@+id/cardNumber"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="15dp"
+                android:drawableEnd="@drawable/common_full_open_on_phone"
+                android:ems="10"
+                android:hint="Card Number"
+                android:inputType="numberDecimal"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                app:mask="####-####-####-####" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="15dp"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <com.vicmikhailau.maskededittext.MaskedEditText
+                    android:id="@+id/cardExpirationDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_weight="1"
+                    android:drawableEnd="@drawable/common_full_open_on_phone"
+                    android:hint="MM/YY"
+                    android:inputType="numberDecimal"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp"
+                    app:mask="##/##" />
+
+                <com.vicmikhailau.maskededittext.MaskedEditText
+                    android:id="@+id/cardCvc"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_weight="1"
+                    android:drawableEnd="@drawable/common_full_open_on_phone"
+                    android:hint="CVC"
+                    android:inputType="numberDecimal"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp"
+                    app:mask="###" />
+
+                <!--
+                <EditText
+                    android:id="@+id/cardayyil"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/edittextheight"
+                    android:layout_marginEnd="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/shapeedittext"
+                    android:ems="10"
+                    android:fontFamily="@font/nunito600semibold"
+                    android:hint="@string/ay_y_l"
+                    android:inputType="numberDecimal"
+                    android:paddingStart="@dimen/edittext_padding_start"
+                    android:paddingEnd="@dimen/edittext_padding_start"
+                    android:textSize="@dimen/edittextstandartsize" />
+                    -->
+
+                <!--
+                <EditText
+                    android:id="@+id/cardcvc"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/edittextheight"
+                    android:layout_marginStart="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/shapeedittext"
+                    android:ems="10"
+                    android:fontFamily="@font/nunito600semibold"
+                    android:hint="@string/cardcvc"
+                    android:inputType="textPostalAddress"
+                    android:paddingStart="@dimen/edittext_padding_start"
+                    android:paddingEnd="@dimen/edittext_padding_start"
+                    android:textSize="@dimen/edittextstandartsize" />-->
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/paymentFinishBtn"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="15dp"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="Payment" />
+        </LinearLayout>
+    </ScrollView>
+
+    <ImageView
+        android:id="@+id/backBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/backarrow" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
