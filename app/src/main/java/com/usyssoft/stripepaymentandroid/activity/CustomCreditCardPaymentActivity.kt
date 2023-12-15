@@ -112,7 +112,7 @@ class CustomCreditCardPaymentActivity : AppCompatActivity() {
         if (client_secret != null) {
             this.paymentIntentClientSecret = client_secret
         }else {
-            this.paymentIntentClientSecret = "payment_intent_client_secret_key"
+            this.paymentIntentClientSecret = "paymentIntentClientSecret"
         }
     }
 
@@ -120,16 +120,16 @@ class CustomCreditCardPaymentActivity : AppCompatActivity() {
 
         when (paymentResult) {
             is PaymentResult.Completed -> {
-                println("Handle successful payment")
+                Toast.makeText(applicationContext, "successful payment", Toast.LENGTH_SHORT).show()
             }
 
             is PaymentResult.Canceled -> {
-                println("Handle canceled payment")
+                Toast.makeText(applicationContext, "canceled payment", Toast.LENGTH_SHORT).show()
             }
 
             is PaymentResult.Failed -> {
                 // See here: https://stripe.com/docs/api/payment_intents/object#payment_intent_object-last_payment_error-message
-                println("Handle failed payment error:${paymentResult.throwable.message}")
+                Toast.makeText(applicationContext, "error: ${paymentResult.throwable.message}", Toast.LENGTH_SHORT).show()
             }
         }
     }

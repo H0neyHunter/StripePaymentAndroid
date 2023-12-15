@@ -1,7 +1,9 @@
 package com.usyssoft.stripepaymentandroid.activity
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import com.stripe.android.paymentsheet.PaymentSheet
 import com.stripe.android.paymentsheet.PaymentSheetResult
 import com.usyssoft.stripepaymentandroid.databinding.ActivityMainBinding
@@ -23,6 +25,9 @@ class MainActivity : AppCompatActivity() {
 
 
         b.apply {
+            customCreditPayment.setOnClickListener {
+                startActivity(Intent(this@MainActivity,CustomCreditCardPaymentActivity::class.java))
+            }
             PaymentSheetBtn.setOnClickListener {
                 PaymentSheetFunction()
             }
@@ -30,7 +35,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun PaymentSheetFunction() {
-        val paymentIntentClientSecret = "payment_intent_client_secret_key"
+        val paymentIntentClientSecret = "paymentIntentClientSecret"
         paymentSheet.presentWithPaymentIntent(paymentIntentClientSecret)
     }
 
@@ -38,13 +43,13 @@ class MainActivity : AppCompatActivity() {
     private fun onPaymentSheetResult(paymentResult: PaymentSheetResult) {
         when (paymentResult) {
             is PaymentSheetResult.Completed -> {
-                println("Handle successful payment")
+                Toast.makeText(applicationContext, "successful payment", Toast.LENGTH_SHORT).show()
             }
             is PaymentSheetResult.Canceled -> {
-                println("Handle canceled payment")
+                Toast.makeText(applicationContext, "cancaled payment", Toast.LENGTH_SHORT).show()
             }
             is PaymentSheetResult.Failed -> {
-                println("Handle failed payment error:${paymentResult.error.message}")
+                Toast.makeText(applicationContext, "error payment: ${paymentResult.error.message}", Toast.LENGTH_SHORT).show()
             }
         }
     }
